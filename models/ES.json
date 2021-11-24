@@ -1,0 +1,72 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hola mundo cruel",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hola",
+            "como estás",
+            "di hola mundo",
+            "di hola",
+            "hola mundo",
+            "mundo cruel"
+          ]
+        },
+        {
+          "name": "HowAreYouIntent",
+          "slots": [
+            {
+              "name": "Status",
+              "type": "LIST_OF_STATUS"
+            }
+          ],
+          "samples": [
+            "Estoy {Status}",
+            "Me encuentro {Status}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_STATUS",
+          "values": [
+            {
+              "name": {
+                "value": "bien"
+              }
+            },
+            {
+              "name": {
+                "value": "Regular"
+              }
+            },
+            {
+              "name": {
+                "value": "Mal"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
