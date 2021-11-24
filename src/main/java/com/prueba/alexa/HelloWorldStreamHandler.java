@@ -13,6 +13,7 @@ public class HelloWorldStreamHandler extends SkillStreamHandler {
                 .addRequestHandlers(
                         new CancelandStopIntentHandler(),
                         new HelloWorldIntentHandler(),
+                        new HowAreYouIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler())

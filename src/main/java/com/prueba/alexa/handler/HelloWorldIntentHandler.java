@@ -16,10 +16,11 @@ public class HelloWorldIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hola Mundo cruel";
+        String speechText = "Hola Mundo cruel. ¿Qué tal te encuentras hoy?";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("HolaMundo", speechText)
+                .withReprompt(speechText) // 'reprompt' es para que mantenga la sesión abierta
                 .build();
     }
 
