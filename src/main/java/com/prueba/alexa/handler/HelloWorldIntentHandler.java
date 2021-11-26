@@ -16,7 +16,7 @@ public class HelloWorldIntentHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Hola Mundo cruel. ¿Qué tal te encuentras hoy?";
+        String speechText = "Hola a todo el mundo. ¿Qué tal te encuentras hoy? También me puedes decir que tipo de comida te gusta.";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard("HolaMundo", speechText)
