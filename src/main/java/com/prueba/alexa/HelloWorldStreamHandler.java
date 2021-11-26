@@ -14,6 +14,8 @@ public class HelloWorldStreamHandler extends SkillStreamHandler {
                         new CancelandStopIntentHandler(),
                         new HelloWorldIntentHandler(),
                         new HowAreYouIntentHandler(),
+                        new FoodYouLikeIntentHandler(),
+                        new LocationIntentHandler(),
                         new HelpIntentHandler(),
                         new LaunchRequestHandler(),
                         new SessionEndedRequestHandler())
