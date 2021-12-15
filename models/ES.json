@@ -43,6 +43,50 @@
         {
           "name": "AMAZON.NavigateHomeIntent",
           "samples": []
+        },
+        {
+          "name": "FoodYouLikeIntent",
+          "slots": [
+            {
+              "name": "DulceSalada",
+              "type": "TIPO_DulceSalado",
+              "samples": [
+                "Prefiero la comida {DulceSalada}",
+                "Prefiero {DulceSalada}",
+                "Me gusta la comida {DulceSalada}",
+                "{DulceSalada}",
+                "Me gusta {DulceSalada}"
+              ]
+            },
+            {
+              "name": "Origen",
+              "type": "TIPO_Origen",
+              "samples": [
+                "Prefiero la comida {Origen}",
+                "Me gusta la comida {Origen}",
+                "Prefiero la {Origen}",
+                "{Origen}",
+                "Me gusta la {Origen}"
+              ]
+            },
+            {
+              "name": "Temperatura",
+              "type": "TIPO_Temperatura",
+              "samples": [
+                "{Temperatura}"
+              ]
+            }
+          ],
+          "samples": [
+            "Me gusta comer",
+            "Me gusta la comida",
+            "Me gusta la {Origen}",
+            "Me gusta {Temperatura}",
+            "Me gusta {DulceSalada}",
+            "Me gusta la comida {Temperatura}",
+            "Me gusta la comida {Origen}",
+            "Me gusta la comida {DulceSalada}"
+          ]
         }
       ],
       "types": [
@@ -51,22 +95,218 @@
           "values": [
             {
               "name": {
-                "value": "bien"
+                "value": "bien",
+                "synonyms": [
+                  "muy bien",
+                  "estupendo",
+                  "de maravilla"
+                ]
               }
             },
             {
               "name": {
-                "value": "Regular"
+                "value": "regular",
+                "synonyms": [
+                  "más o menos"
+                ]
               }
             },
             {
               "name": {
-                "value": "Mal"
+                "value": "mal",
+                "synonyms": [
+                  "muy mal",
+                  "fatal",
+                  "chungo"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TIPO_DulceSalado",
+          "values": [
+            {
+              "name": {
+                "value": "salado",
+                "synonyms": [
+                  "salada"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "dulce"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TIPO_Origen",
+          "values": [
+            {
+              "name": {
+                "value": "Turca"
+              }
+            },
+            {
+              "name": {
+                "value": "Española",
+                "synonyms": [
+                  "España"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "China"
+              }
+            },
+            {
+              "name": {
+                "value": "Japonesa",
+                "synonyms": [
+                  "Japón"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Italiana",
+                "synonyms": [
+                  "Italia"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Americana",
+                "synonyms": [
+                  "América"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "TIPO_Temperatura",
+          "values": [
+            {
+              "name": {
+                "value": "templada"
+              }
+            },
+            {
+              "name": {
+                "value": "fría"
+              }
+            },
+            {
+              "name": {
+                "value": "caliente"
               }
             }
           ]
         }
       ]
-    }
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "FoodYouLikeIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "DulceSalada",
+              "type": "TIPO_DulceSalado",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.508806831043.661900102520"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1068583671155.1571010235757.1503601707823"
+                }
+              ]
+            },
+            {
+              "name": "Origen",
+              "type": "TIPO_Origen",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.508806831043.813095679558"
+              },
+              "validations": [
+                {
+                  "type": "hasEntityResolutionMatch",
+                  "prompt": "Slot.Validation.1068583671155.299865822142.1616551548933"
+                }
+              ]
+            },
+            {
+              "name": "Temperatura",
+              "type": "TIPO_Temperatura",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1068583671155.804041822490"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.508806831043.661900102520",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿Prefieres la comida dulce o salada?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.508806831043.813095679558",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "¿De qué origen prefieres la comida?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1068583671155.1571010235757.1503601707823",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Los valores válidos son dulce o salada"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1068583671155.299865822142.1616551548933",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Debes indicar un origen. Por ejemplo, puedes decir italiana, japonesa o americana. "
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1068583671155.804041822490",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Prefieres la comida caliente, templada o fría"
+          }
+        ]
+      }
+    ]
   }
 }
