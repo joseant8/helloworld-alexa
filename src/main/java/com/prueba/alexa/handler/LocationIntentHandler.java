@@ -30,13 +30,12 @@ public class LocationIntentHandler implements RequestHandler {
         if (deviceSupportsGeolocation(input)) {
             return handleAtCurrentLocation(input, response);
         } else {
-            System.out.println("El dispositivo no soporta geolocalización.");  ////////////
             return handleAskForLocation(response);
         }
     }
 
     private Optional<Response> handleAskForLocation(ResponseBuilder response) {
-        return say("¿Qué playa?", response);
+        return say("El dispositivo no soporta geolocalización, ¿qué playa?", response);
     }
 
     private Optional<Response> handleAtCurrentLocation(HandlerInput input, ResponseBuilder response) {
@@ -77,6 +76,6 @@ public class LocationIntentHandler implements RequestHandler {
 
     private String searchBeach(Coordinate location) {
         // ... we use the OPEN AEMET API here.
-        return "Playa encontrada";
+        return "Tú localización actual es, latitud " + location.getLatitudeInDegrees() + " y longitud: " + location.getLongitudeInDegrees();
     }
 }
